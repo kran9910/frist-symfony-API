@@ -16,6 +16,12 @@ class PostsController extends AbstractApiController
     {
         $posts = $this->getDoctrine()->getRepository(Post::class)->findAll();
 
+        if (!$posts) {
+            throw $this->createNotFoundException(
+                'No posts found'.$id
+            );
+        }
+
         return $this->json($posts);
     }
 

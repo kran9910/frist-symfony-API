@@ -51,8 +51,9 @@ class PostsController extends AbstractApiController
 
         $form->handleRequest($request);
 
+        
         if (!$form->isSubmitted() || !$form->isValid()) {
-            print "Error";
+            print "Bad Request, invalid from";
             exit;
         }
 
